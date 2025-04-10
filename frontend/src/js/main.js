@@ -26,6 +26,7 @@ async function sendRequest(autor, title, text) {
           'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify(body)
+
     });
     let result = await response.json();
     console.log(result);
@@ -61,7 +62,6 @@ function createPost(modal) {
           console.log(text.value);
           sendRequest(autor.value, title.value, text.value);
         }
-        form.reset();
         form.classList.add('was-validated');
 
         },false);

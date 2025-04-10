@@ -1,0 +1,53 @@
+@baseUrl = http://127.0.0.1:8000/api/v1
+
+# получение постов
+GET {{baseUrl}}/posts/
+Content-Type: application/json
+
+###
+
+POST {{baseUrl}}/posts/
+Content-Type: application/json
+
+{
+    "title": "Post from VS",
+    "text": "Post from VSPost from VSPost from VSPost from VSPost from VS",
+    "autor": "also me"
+}
+
+###
+
+PATCH {{baseUrl}}/posts/3/
+Content-Type: application/json
+
+{
+    "title": "Update",
+    "text": "Update Post From VS"
+}
+
+###
+
+GET {{baseUrl}}/posts/5/
+Content-Type: application/json
+
+###
+
+DELETE {{baseUrl}}/posts/5/
+Content-Type: application/json
+
+
+
+###
+GET {{baseUrl}}/posts/5/comments/
+Content-Type: application/json
+
+###
+
+POST {{baseUrl}}/comments/
+Content-Type: application/json
+
+{
+    "autor": "chlen",
+    "text": "post is shit",
+    "post_id": "5"
+}

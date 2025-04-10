@@ -1,0 +1,67 @@
+// Import all of Bootstrap's CSS
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+.nav-link , .navbar-brand{
+    color: #f4f4f4;
+    cursor: pointer;
+    }
+    .nav-link{
+    margin-right: 1em !important;
+    }
+    .nav-link:hover{
+    background: #f4f4f4;
+    color: #018f88;
+    }
+    .navbar-collapse{
+    justify-content: flex-end;
+    }
+    .navbar-brand:hover {
+        color: #018f88;
+    }
+    .navbar-toggler{
+        background:#fff !important;
+    }
+    .navbar-collapse{
+    justify-content: center;
+    }
+    .bg-dark{
+    background-color:#343a40!important
+    }
+
+    .btn-outline-dark {
+        color: #fff;
+    }
+
+    .container-main-page {
+        width: 85%;
+        max-width: 1200px;
+        padding-left: 1%;
+        padding-right: 1%;
+        margin: 0 auto;
+    }
+
+    .post {
+        border: 2px;
+    }
+
+    .article-main {
+        width: 900px;
+    }
+
+    .img-container {
+        max-width: 60px;
+        max-height: 60px;
+        margin-right: 20px;
+    }
+    
+    .profile-photo{
+        max-width: 100%;
+        height: auto;
+
+    }
+
+    .autor-nickname-img {
+        display: flex;
+        align-items: center;
+
+    }

@@ -17,10 +17,28 @@ module.exports = {
     hot: true
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: './src/index.html' })
+    new HtmlWebpackPlugin({ 
+      filename: 'index.html',
+      template: './src/index.html',
+      minify: {
+        collapseWhitespace: true,
+      }
+    }),
+    new HtmlWebpackPlugin({ 
+      filename: 'post.html',
+      template: './src/post.html',
+      minify: {
+        collapseWhitespace: true,
+      }
+    }),
   ],
   module: {
     rules: [
+        {
+          test: /\.html$/,
+          exclude: /node_modules/,
+          use: 'babel-loader'
+        },
         {
             test: /\.html$/,
             use: 'html-loader'

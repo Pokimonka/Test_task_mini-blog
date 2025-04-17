@@ -1,19 +1,22 @@
 // Import our custom CSS
 import '../scss/styles.scss'
-
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
 import Alert from 'bootstrap/js/dist/alert'
 
 // or, specify which plugins you need:
 import { Tooltip, Toast, Popover } from 'bootstrap'
-
 'use strict'
+
 
 function drawPost(response) {
     var date = new Date(Date.parse(response['date'])); 
+    let postList = document.querySelector('.posts-list');
+    let postElem = document.createElement("div");
+    postElem.classList.add("post");
+
     let post = `
-    <div class="post container border border-light rounded mb-3">
+    <div class ="container border border-light rounded mb-3">
         <div class="autor-nickname-img container pb-3 border-bottom border-light">
             <div class="img-container">
                 <img class="profile-photo border border-light mt-1" src="#" alt="Профиль">
@@ -28,13 +31,21 @@ function drawPost(response) {
         <div class="text-post container-sm text-truncate mb-3 mt-3">
             ${response['text']}
         </div>
-        <button type="button" class="read-next-btn btn btn-outline-primary">Читать далее</button>
+            <button type="button" class="read-next-btn btn btn-outline-primary" id=${response['id']}>Читать далее</button>
         <div class="time text-sm-end"> ${date.toLocaleString().slice(0,10)} </div>
-    </div>`;
+        </div>`;
 
-    let postList = document.querySelector('.posts-list');
 
-    postList.insertAdjacentHTML('beforeend', post);
+    postElem.insertAdjacentHTML('afterbegin', post);
+
+    postList.appendChild(postElem);
+
+    let readMoreBtn = postElem.querySelector('.read-next-btn');
+
+    readMoreBtn.addEventListener('click', () => {   
+        localStorage.setItem('id', readMoreBtn.getAttribute('id'));
+        location.href= './post.html';
+    });
 }
 
 
@@ -54,7 +65,6 @@ async function sendRequest(autor, title, text) {
 
     });
     let result = await response.json();
-    console.log(result);
     drawPost(result);
 }
 
@@ -114,4 +124,7 @@ async function setPosts() {
 }
 
 setPosts();
+
+
+
 

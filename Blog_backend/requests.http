@@ -27,19 +27,15 @@ Content-Type: application/json
 
 ###
 
-GET {{baseUrl}}/posts/5/
+GET {{baseUrl}}/posts/42/
 Content-Type: application/json
 
 ###
 
-DELETE {{baseUrl}}/posts/15/
+DELETE {{baseUrl}}/posts/43/
 Content-Type: application/json
 
 
-
-###
-GET {{baseUrl}}/posts/5/comments/
-Content-Type: application/json
 
 ###
 
@@ -47,7 +43,7 @@ POST {{baseUrl}}/comments/
 Content-Type: application/json
 
 {
-    "autor": "chlen",
-    "text": "post is shit",
-    "post_id": "5"
+    "autor": "tgtgtgtgtgtg",
+    "text": "tgtgtgtgtgtg",
+    "post_id": "34"
 }
